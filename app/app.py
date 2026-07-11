@@ -1,3 +1,7 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from flask import Flask, redirect, render_template, session, request, url_for, jsonify
 from db import Base, sessionLocal, engine
 from models import User, Report
