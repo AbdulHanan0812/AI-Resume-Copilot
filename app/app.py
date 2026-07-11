@@ -12,6 +12,9 @@ import json
 from Ai_setup import resume_analyzer
 
 app = Flask(__name__)
+
+db_url = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 app.secret_key = "0812"
 Base.metadata.create_all(bind=engine)
 
