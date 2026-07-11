@@ -42,3 +42,14 @@ def create_database_engine():
 engine = create_database_engine()
 sessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 Base = declarative_base()
+
+import os
+
+# Agar Vercel par chal raha hai toh /tmp/ folder use karein, nahi toh normal local path
+if os.environ.get('VERCEL'):
+    db_path = '/tmp/resume_app.db'
+else:
+    db_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'resume_app.db')
+
+# Jo bhi aapka app.config hai, usme db_path pass kar dein
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
