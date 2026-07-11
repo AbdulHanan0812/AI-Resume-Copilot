@@ -51,5 +51,4 @@ if os.environ.get('VERCEL'):
 else:
     db_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'resume_app.db')
 
-# Jo bhi aapka app.config hai, usme db_path pass kar dein
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
+engine = create_engine(f'sqlite:///{db_path}')
