@@ -5,3 +5,4 @@ werkzeug==3.0.3
 flask-sqlalchemy
 openai
 python-dotenv
+PyPDF2

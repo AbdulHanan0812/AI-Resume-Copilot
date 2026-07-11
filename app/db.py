@@ -45,7 +45,7 @@ Base = declarative_base()
 
 import os
 
-# Agar Vercel par chal raha hai toh /tmp/ folder use karein, nahi toh normal local path
+
 if os.environ.get('VERCEL'):
     db_path = '/tmp/resume_app.db'
 else:
